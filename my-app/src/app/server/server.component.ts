@@ -7,5 +7,10 @@ import { Component } from "@angular/core";
   // template:`<h1> Hello i am inline template server`
 })
 export class ServerComponent{ // typescript class
+  ServerId:number=10;
+  ServerStatus:string = 'offline';
 
+  getServerStatus(){
+    return this.ServerStatus
+  }
 }
