@@ -9,8 +9,13 @@
 <!-- Property Binding-->
 <!-- <button [disabled] = "!allowNewServer" class="btn btn-primary" (mouseover)="onCreateServer()">Add Server</button><br> -->
 <button [disabled] = "!allowNewServer" class="btn btn-primary" (click)="onCreateServer()">Add Server</button><br>
-{{allowNewServer}}{{ 'String Interpolation'}}
-  <p [innerText]="allowNewServer"> Hello</p>
-  {{serverCreationStatus}}
-<app-server></app-server>
-<app-server></app-server>
+<!-- {{allowNewServer}}{{ 'String Interpolation'}} -->
+  <!-- <p [innerText]="allowNewServer"> Hello</p> -->
+  <!-- {{serverCreationStatus}} -->
+  <p *ngIf="serverCreated; else noServer"> Server was Created with, Server Name is {{serverName}} *ngif Directive</p>
+  <ng-template #noServer>
+    <p> No Server Was Created </p>
+  </ng-template>
+  <!-- *Ng for strcutural Directive to change the DOM elements-->
+<app-server *ngFor="let server of Servers"></app-server>
+<!-- <app-server></app-server> -->
