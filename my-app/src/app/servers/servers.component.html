@@ -4,9 +4,9 @@
 <input type="text" class="form-control" (input)="onUpdateServerName($event)">
 <!-- two Way Data Binding-->
 <label>Two Way Data Binding</label>
-<input type="text" class="form-control" [(ngModel)]="serverName">
+<!-- <input type="text" class="form-control" [(ngModel)]="serverName">
 {{'serverName: '}} {{serverName}}<br>
-<!-- Property Binding-->
+Property Binding -->
 <!-- <button [disabled] = "!allowNewServer" class="btn btn-primary" (mouseover)="onCreateServer()">Add Server</button><br> -->
 <button [disabled] = "!allowNewServer" class="btn btn-primary" (click)="onCreateServer()">Add Server</button><br>
 <!-- {{allowNewServer}}{{ 'String Interpolation'}} -->
@@ -17,5 +17,5 @@
     <p> No Server Was Created </p>
   </ng-template>
   <!-- *Ng for strcutural Directive to change the DOM elements-->
-<app-server *ngFor="let server of Servers"></app-server>
+<!-- <app-server *ngFor="let server of Servers"></app-server> -->
 <!-- <app-server></app-server> -->

@@ -1,0 +1,32 @@
+<p>assigment2 works!</p>
+<button class="btn btn-primary" (click)="displayDetails()">Dispaly Details</button>
+<!-- <button class="btn btn-primary" (click)= "output = !output" >Dispaly Details</button> -->
+{{output}}
+<p *ngIf="output">Secret Password=tuna</p>
+<!-- <p *ngIf= "output" For="let cont of btnCLick">Secret Password=tuna</p> -->
+<!-- <p *ngFor="let cont of btnCLick; index"> {{cont}}</p> -->
+<div *ngFor="let cont of btnCLick; index as i">
+  <p *ngIf="i<5 else other">{{cont}}</p>
+    <ng-template #other>
+      <p [ngStyle]="{'backgroundColor':'green'}" [ngClass]="{online:i>=5}">{{cont}}</p>
+    </ng-template>
+</div>
+<!-- second way-->
+<!-- <div
+  *ngFor="let logItem of log"
+  [ngStyle]="{backgroundColor:logItem>=5?'blue':'transparent'}"
+  [ngClass]="{'white-text': logItem>=5}">{{logItem}}
+</div> -->
+
+
+
+
+ <!-- <p *ngFor="let cont of btnCLick; index as i > 5">{{cont}}
+       <div *ngif="i>5 else other">
+          {{cont}}
+      </div>
+      <ng-template #other>
+        <p>{{cont}}</p>
+      </ng-template>
+  </p>
+{{btnCLick.length}} -->
