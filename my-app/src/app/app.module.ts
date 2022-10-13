@@ -9,13 +9,15 @@ import { ServersComponent } from './servers/servers.component';
 import { WarningAlertComponent } from './warning-alert/warning-alert.component'
 import { SuccessAlert } from './success-alert/success-alert.component';
 import { AssigmentComponent } from './assigment/assigment.component';
+import { Assigment2Component } from './assigment2/assigment2.component';
 
 @NgModule({
   declarations: [
     // ALl the components need to added here Ex: custom components
     AppComponent,
-    ServerComponent,
-    ServersComponent,
+    // ServerComponent,
+    // ServersComponent,
+    Assigment2Component,
     // AssigmentComponent,
     // WarningAlertComponent,
     // SuccessAlert
