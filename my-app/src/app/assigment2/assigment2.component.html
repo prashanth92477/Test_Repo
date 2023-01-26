@@ -5,12 +5,12 @@
 <p *ngIf="output">Secret Password=tuna</p>
 <!-- <p *ngIf= "output" For="let cont of btnCLick">Secret Password=tuna</p> -->
 <!-- <p *ngFor="let cont of btnCLick; index"> {{cont}}</p> -->
-<div *ngFor="let cont of btnCLick; index as i">
+<!-- <div *ngFor="let cont of btnCLick; index as i">
   <p *ngIf="i<5 else other">{{cont}}</p>
     <ng-template #other>
       <p [ngStyle]="{'backgroundColor':'green'}" [ngClass]="{online:i>=5}">{{cont}}</p>
     </ng-template>
-</div>
+</div> -->
 <!-- second way-->
 <!-- <div
   *ngFor="let logItem of log"

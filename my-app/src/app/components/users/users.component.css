@@ -1,0 +1,41 @@
+/* .example-same{
+  float: left;
+
+} */
+/* .float-container {
+    border: 3px solid #fff;
+    padding: 20px;
+} */
+
+/* .float-child {
+    width: 20%;
+    float: left;
+    padding: 20px;
+    border: 2px solid red;
+} */
+
+/* .flex-container{
+  display: flex;
+} */
+
+/* .mat-list-base.inline-list {
+    display: flex;
+} */
+
+.wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+}
+
+.mat-list-base.inline-list {
+    display: flex;
+}
+.big-text{
+  text-transform: uppercase;
+}
+
+

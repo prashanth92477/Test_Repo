@@ -8,15 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit{
   title = 'my-app';
-  enableProperty = false
+  // enableProperty = false
   constructor(){
-    setTimeout(() => {
-      this.enableProperty = true;
-    }, 1000);
+    // setTimeout(() => {
+    //   this.enableProperty = true;
+    // }, 1000);
 
   }
   ngOnInit(): void {
-      console.log(this.enableProperty);
+      // console.log(this.enableProperty);
   }
 
 }

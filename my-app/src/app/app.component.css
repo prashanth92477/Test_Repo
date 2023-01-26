@@ -1,3 +1,44 @@
-h1{
+/* h1{
   color:cadetblue
+} */
+
+/* @media (max-width: 768px) {
+  .navbar-form {
+    margin: 0 !important;
+    padding-top: 7px !important;
+  }
+} */
+
+/* .custelement{
+ display: inline;
+} */
+
+
+/* .custelement {
+    display: flex!important;
+    flex-basis: auto;
+
 }
+
+.cust-form-item{
+justify-content: space-around;
+} */
+
+/* .form-inline{
+  display: flex;
+  justify-content: space-evenly;
+}
+.bg-light{
+  background-color: #1976d2 !important;
+  color:white !important;
+  --bs-bg-opacity: 1;
+}
+.navbar-brand {
+  color:white !important;
+}
+.navbar {
+  color:white !important;
+}
+.nav-link{
+color: #f8f9fa;
+} */

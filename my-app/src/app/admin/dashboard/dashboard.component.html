@@ -1,0 +1,164 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+    <li class="breadcrumb-item active">Dashboard</li>
+  </ol>
+</nav>
+<h5>DashBoard</h5>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-3" style="border: 2px solid red; background-color: #e9e6e6;">
+      <div class="row">
+        <div class="col-11 text-white text-center mx-2 rounded pt-2 pb-2" style="background-color:#a39e9e;font-family:'arial narrow bold' sans-serif;font-weight:600">{{Designation | uppercase}}
+        </div>
+        <div class="col-12 text-center mt-2">
+          <img src="assets/User.png" width="100px"alt="">
+        </div>
+        <div class="col-12 text-center pt-2 pb-2" style="font-family:Tahoma;font-weight:600">{{Username | lowercase}}</div>
+        <div class="col-12 text-center pt-2 pb-2" style="font-family:Arial">TEAM SUMMARY</div>
+        <div class="col-12-mb-3">
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center"> No.Of Team Members
+              <span class="badge rounded-pill text-bg-secondary"
+              style="font-size:13px; font-weight:600">{{NoOfTeamMemebers}}</span>
+              <!-- <span>20</span> -->
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center"> TotalCostofAllProjects
+              <span class="badge rounded-pill text-bg-secondary"
+              style="font-size:13px; font-weight:600">$ {{TotalCostofAllProjects}} k</span>
+              <!-- <span>20</span> -->
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center"> PendingTasks
+              <span class="badge rounded-pill text-bg-secondary"
+              style="font-size:13px">{{PendingTasks}}</span>
+              <!-- <span>20</span> -->
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center"> UpComingProjects
+              <span class="badge rounded-pill text-bg-secondary"
+              style="font-size:13px">{{UpComingProjects | percent}}</span>
+              <!-- <span>20</span> -->
+            </li>
+          </ul>
+        </div>
+        <div class="col-12 text-center pt-2 pb-2" style="font-family:'Arial Narrow';font-weight:600">Clients</div>
+        <div class="col-12">
+          <ul class="list-group list list-group-flush">
+            <li class="list-group-item" *ngFor = "let client of Clients" >{{client | slice:0:10 }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6"  style="border: 2px solid blue;">
+      <div class="row">
+        <div class="col-12 pt-0 pb-2">
+          <div class="row mt-2">
+            <div class="col-6 text-start">
+              <!-- Example single danger button -->
+                <div class="dropdown">
+                  <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    Action
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#" *ngFor = "let project of Projects" onclick="return false" (click)="chk($event)">{{project}}</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                  </ul>
+                </div>
+              </div>
+            <div class="col-6 text-end">
+              <div class="dropdown">
+                  <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    Action
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#" *ngFor = "let yrs of Years">
+                      <span [ngSwitch]="yrs">
+                        <span  *ngSwitchCase="'2019'" style="color:blue">{{yrs}}</span>
+                        <span  *ngSwitchCase="'2018'" style="color:green">{{yrs}}</span>
+                        <span  *ngSwitchCase="'2017'" style="color:yellow">{{yrs}}</span>
+                        <span  *ngSwitchCase="'2016'" style="color:yellowgreen">{{yrs}}</span>
+                        <span  *ngSwitchCase="'2015'" style="color:red">{{yrs}}</span>
+                        <span  *ngSwitchDefault>{{yrs}}</span>
+                      </span>
+
+                      </a></li>
+                  </ul>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="row"> -->
+        <div class="col-11 mx-auto rounded text-center text-white pb-2 pt-2" style="background-color: #a39e9e; font-family:'Arial Narrow';font-weight:600">
+          PROJECT BREFING     </div>
+      <div class="col-12">
+        <table class="table table-borderless" style="text-align: center;">
+          <tr>
+            <td class="pt-2 pb-2">Project Cost</td>
+            <td class="pt-2 pb-2">{{ProjectCost | currency:'USD'}}</td>
+          </tr>
+          <tr>
+            <td class="pt-2 pb-2">Current Expenditure</td>
+            <td class="pt-2 pb-2">{{CurrentExpenditure | currency:'USD'}}</td>
+          </tr>
+          <tr>
+            <td class="pt-2 pb-2">AvailableFunds</td>
+            <td class="pt-2 pb-2">{{AvailableFunds | currency:'USD'}}</td>
+          </tr>
+        </table>
+      </div>
+    <!-- </div> -->
+    <div class="col-11 text-center text-white pt-2 pb-2 mx-auto  rounded " style="background-color: #a39e9e;font-weight:600">TEAM MEMEBER SUMMARY</div>
+    <div class="col-12">
+      <table class="table table-borderless" style="text-align: center;">
+        <tr *ngFor="let Teammemeber of TeamMemberSummary">
+          <th class="pt-2 pb-2"> {{Teammemeber.Region}} </th>
+          <th class="pt-2 pb-2"> {{Teammemeber.TeamMemberCount}}</th>
+          <th class="pt-2 pb-2"> {{Teammemeber.TemporarilyUnavailableMemebers}}</th>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+  <div class="col-lg-3" style=" border: 5px solid red;">
+  <div class="accordion" id="accordionExample">
+  <!-- < class="row" *ngFor="let tems of TeamMems ; let i = index"> -->
+  <div class="accordion-item" *ngFor="let tems of TeamMems ; let i = index">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + i" aria-expanded="true" aria-controls="collapseOne">
+        {{tems.Region}}
+      </button>
+    </h2>
+    <div [id]="'collapse' + i" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" [ngClass]="(i === 0)?'show':''">
+      <div class="accordion-body">
+        <div *ngIf="i === 0; then firsTemplate; else secondtemplate"></div>
+        <ng-template #firsTemplate>
+           <div class="card  mb-3" *ngFor="let tems of TeamMems ; let i = index" style="max-width: 18rem;">
+            <div class="card-header text-bg-primary">{{tems.Members[i].ID}} {{tems.Members[i].Name}}</div>
+            <div class="card-body">
+                {{tems.Members[i].Status}}
+            </div>
+        </div>
+        </ng-template>
+
+        <ng-template #secondtemplate>
+          <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let mems of tems.Members">
+            <tr>
+              <th scope="row">{{mems.ID}}</th>
+              <td>{{mems.Name}}</td>
+              <td [style.color]="(mems.Status ==='Busy')?'red':''"><i class="fa fa-phone"></i>{{mems.Status}}</td>
+            </tr>
+          </tbody>
+      </table>
+        </ng-template>
+    </div>
+</div>
+</div>
+

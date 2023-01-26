@@ -1,0 +1,81 @@
+
+  <h2>Users</h2>
+  <div class="d-grid col-6 mx-auto">
+  <!-- <button [disabled]="!enableAdd" class="btn mb-2" [ngClass]="currentClasses" type="button">Add New User</button> -->
+  <button (click)="addUser({firstName:'Neil',lastName:'Mukesh',isActive:true})" [disabled]="!enableAdd" class="btn mb-2 bg-light" type="button">Add New User</button>
+  </div>
+    <ul class="list-unstyled" *ngIf="loadingUsers && users.length > 0">
+
+            <!-- <li class="card card-body mb-2" *ngFor="let user of users" [class.bg-light]="user.isActive" [style.border-color]="user.isActive? 'green':'red'"> -->
+              <li class="card card-body mb-2" *ngFor="let user of users" [class.bg-light]="user.isActive">
+              <!-- <div class="row">
+                <div class="col-sm-4">
+                  <img *ngIf="user.image" class="img-fluid" [src]="user.image" alt="" style="width: 10rem;height: 10rem;">
+                </div> -->
+                <div class="col-sm-6">
+                  <!-- <h3 [ngStyle]="currentStyle">{{user.firstName}} {{user.lastName}}</h3> -->
+                  <h3>{{user.firstName}} {{user.lastName}}<button class="btn btn-dark"><i fa fa-plus></i></button></h3>
+                  <!-- <ul class="list-group" *ngIf="user.age && user.address && showExtended" > -->
+                    <ul class="list-group" *ngIf="user.age && user.address && !user.hide" >
+                    <!-- {{user.isActive}} -->
+                    <li class="list-group-item"> Age: {{user.age}}</li>
+                    <li class="list-group-item"> Address : {{user?.address?.street}}</li>
+                    <!-- <li class="list-group-item"> Address : {{user.balance | currency:"GBP":"symbol"}}</li> -->
+                    <li class="list-group-item"> Address : {{user.registered | date:"mm/dd/YYYY"}}</li>
+                  </ul>
+                </div>
+              <!-- </div> -->
+            </li>
+    </ul>
+
+    <h4 *ngIf="!loadingUsers"> Loading User....</h4>
+    <h4 *ngIf="loadingUsers && users.length === 0"> No Loads Found ...</h4>
+    <!-- <mat-list class="inline-list">
+      <mat-list-item>Hello</mat-list-item>
+      <mat-list-item>Salt</mat-list-item>
+      <mat-list-item>Paprika</mat-list-item>
+    </mat-list> -->
+
+
+<!-- <h2>Users</h2>
+<button class="mat-button" mat-raised-button  color="primary" style="margin-bottom: 10px;">Add New User</button>
+<div style="height: 20rem;width: 20rem" class="flex-container">
+  <div style="height: 10rem;width: 10rem;">
+    <mat-card class="example-card">
+      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    </mat-card>
+  </div>
+  <div style="height: 10rem;width: 20rem;">
+    <mat-card class="example-card">
+    <ul *ngIf="loadingUsers && users.length > 0">
+      <li *ngFor="let user of users">
+        <div class="row" border-color="blue">
+        <mat-card style="margin-bottom: 10px;">
+          <mat-card-header style="background-color: navajowhite;">
+              <mat-card-title>
+                <h4>{{ user.firstName}} {{ user.lastName}}</h4>
+              </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+          <ul *ngIf="showExtended && user.age && user.address">
+            <mat-list>
+                <mat-list-item>Age:{{user.age}}</mat-list-item>
+                <mat-list-item>Address:{{user.address.street}} {{user.address.city}},{{user.address.state}}</mat-list-item>
+            </mat-list>
+              <li>Age:{{user.age}}</li>
+              <li>Address:{{user.address.street}}
+                {{user.address.city}},
+                {{user.address.state}}
+              </li>
+          </ul>
+          </mat-card-content>
+        </mat-card>
+        </div>
+      </li>
+    </ul>
+
+    </mat-card>
+  </div>
+</div> -->
+
+
